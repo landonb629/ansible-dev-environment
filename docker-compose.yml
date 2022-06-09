@@ -1,0 +1,23 @@
+version: '3'
+services:
+  master:
+    image: landonbabay/ansible-master:latest
+    links:
+      - "slave:ansible-slave"
+    networks:
+      ansible-net:
+        ipv4_address: 192.168.1.100
+    command: tail -f /dev/null
+  slave:
+    image: landonbabay/ansible-slave:latest
+    networks:
+      ansible-net:
+        ipv4_address: 192.168.1.10
+    command: tail -f /dev/null
+networks:
+  ansible-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1

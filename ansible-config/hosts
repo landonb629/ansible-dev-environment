@@ -1,0 +1,5 @@
+[all:vars]
+ansible_user=ansible
+ansible_python_interpreter=/usr/bin/python3
+[dev]
+ansible-slave ansible_host=192.168.1.10 

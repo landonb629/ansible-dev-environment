@@ -7,13 +7,21 @@ services:
     networks:
       ansible-net:
         ipv4_address: 192.168.1.100
-    command: tail -f /dev/null
+    volumes:
+      - type: bind
+        source: $HOST/ansible-config
+        target: /etc/ansible
+    command: > 
+      bash -c "service ssh start &&
+      tail -f /dev/null"
   slave:
     image: landonbabay/ansible-slave:latest
     networks:
       ansible-net:
         ipv4_address: 192.168.1.10
-    command: tail -f /dev/null
+    command:  > 
+      bash -c "service ssh start &&
+      tail -f /dev/null"
 networks:
   ansible-net:
     driver: bridge
@@ -21,3 +29,7 @@ networks:
       config:
         - subnet: 192.168.1.0/24
           gateway: 192.168.1.1
+
+volumes:
+  ansible-config:
+

@@ -1,0 +1,11 @@
+---
+- name: Base configuration
+  hosts: dev
+  become: yes
+  tasks:
+    - name: installing nettools
+      apt:
+        name: apache2
+        state: present
+      
+      

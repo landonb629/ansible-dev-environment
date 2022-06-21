@@ -12,7 +12,7 @@ services:
         source: $HOST/ansible-config
         target: /etc/ansible
     command: > 
-      bash -c "service ssh start &&
+      bash -c "service ssh start && 
       tail -f /dev/null"
   slave:
     image: landonbabay/ansible-slave:latest

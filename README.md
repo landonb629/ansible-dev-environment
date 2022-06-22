@@ -2,8 +2,7 @@
 
 ### What is this?
 
-In an effort to brush up on some docker container practice, I wanted to create a local development environment using containers for ansible.
-I have always found it troublesome to test some aspects of ansible playbooks, so I figured that docker containers running locally would be a great solution!
+This repo will give you a local development environment for ansible. These instructions are tailored towards MacOS, or linux, but if you have experience previously with docker, you shouldn't have a problem getting it working on a windows machine. 
 
 ### What are the files in the repository?
 - Top level 

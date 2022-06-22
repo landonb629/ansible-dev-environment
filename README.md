@@ -45,7 +45,7 @@ docker exec -it ansible-controller /bin/bash
 ``` 
 ansible all -m ping 
 ```
-3. This command should return pong, and then you know that the environment is ready for you to use!
+If you receive a green SUCCESS message back, you are ready to start developing ansible-playbooks!
 
 
 

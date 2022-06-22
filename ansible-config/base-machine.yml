@@ -1,0 +1,21 @@
+---
+- name: Base configuration
+  hosts: dev
+  become: yes
+  tasks:
+    - name: adding users
+      user:
+        name: admin1
+        comment: fakeAdmin
+        group: sudo
+        createhome: yes
+        home: /home/admin1
+    - name: creating SSH key for fakeAdmin
+      user: 
+        name: admin1
+        generate_ssh_key: yes 
+        ssh_key_file: .ssh/id_rsa
+      register: public_key
+    - debug: var=public_key.ssh_public_key
+      
+      

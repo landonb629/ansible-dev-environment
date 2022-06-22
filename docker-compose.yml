@@ -2,8 +2,9 @@ version: '3'
 services:
   master:
     image: landonbabay/ansible-master:latest
+    container_name: ansible-controller
     links:
-      - "slave:ansible-slave"
+      - "target:ansible-slave"
     networks:
       ansible-net:
         ipv4_address: 192.168.1.100
@@ -16,8 +17,9 @@ services:
       eval $$(ssh-agent) && 
       ssh-add ~/.ssh/id_rsa &&
       tail -f /dev/null"
-  slave:
+  target:
     image: landonbabay/ansible-slave:latest
+    container_name: ansible-target
     networks:
       ansible-net:
         ipv4_address: 192.168.1.10
